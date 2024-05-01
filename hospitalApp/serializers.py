@@ -9,7 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
 class PatientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Patient
-        fields = ['phone_number']
+        fields = '__all__'
 
 class ReportSerializer(serializers.ModelSerializer):
     class Meta:
