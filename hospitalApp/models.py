@@ -4,19 +4,23 @@ from django.db import models
 
 
 # Create your models here.
-class MyModel(models.Model):
-    uid = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True)
-    created_at = models.DateField(auto_now_add=True)
-    updated_at = models.DateField(auto_now_add=True)
-
-    class Meta:
-        abstract = True
-
-class Patient(models.Model):
+class Doctor(models.Model):
+    name = models.CharField(max_length=255)
     phone_number = models.CharField(max_length=15, unique=True)
+    age = models.IntegerField()
+    specialism =  models.CharField(max_length=255)
 
     def __str__(self):
-        return self.phone_number
+        return self.name
+
+class Patient(models.Model):
+    name = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=15, unique=True)
+    age = models.IntegerField()
+    city =  models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
 
 
 class Report(models.Model):
